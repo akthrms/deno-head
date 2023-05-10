@@ -30,9 +30,7 @@ const printLines = async (reader: Reader, maxLines: number) => {
   }
 };
 
-type Action = (options: { lines?: number }, file?: string) => void;
-
-const action: Action = async ({ lines }, file) => {
+const action = async ({ lines }: { lines?: number }, file?: string) => {
   const isatty = Deno.isatty(Deno.stdin.rid);
   const reader = isatty ? await fileToReader(file) : Deno.stdin;
   const maxLines = lines ?? 10;
