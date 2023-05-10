@@ -16,7 +16,7 @@
 
     -h, --help            - Show this help.
     -V, --version         - Show the version number for this program.
-    -n, --lines    <num>  - Print the first num lines instead of the first 10.
+    -n, --lines    <num>  - Print the first <num> lines instead of the first 10.
 ```
 
 ## Install
