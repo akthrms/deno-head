@@ -21,14 +21,11 @@ await new Command()
         Deno.exit(1);
       }
 
-      try {
-        reader = await Deno.open(
-          isAbsolute(file) ? file : join(Deno.cwd(), file)
-        );
-      } catch {
+      const filename = isAbsolute(file) ? file : join(Deno.cwd(), file);
+      reader = await Deno.open(filename).catch(() => {
         console.log(`failed to read file: ${file}`);
         Deno.exit(1);
-      }
+      });
     } else {
       reader = Deno.stdin;
     }
